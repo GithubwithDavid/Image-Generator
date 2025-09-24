@@ -23,7 +23,7 @@ const Buttons = ({ onRandomize }: ButtonsProps) => {
   const downloadAlpaca = async () => {
     const canvas = document.createElement('canvas');
     const ctx = canvas.getContext('2d');
-    const size = 400;
+    const size = 4000;
     
     canvas.width = size;
     canvas.height = size;
@@ -66,13 +66,13 @@ const Buttons = ({ onRandomize }: ButtonsProps) => {
           const url = URL.createObjectURL(blob);
           const a = document.createElement('a');
           a.href = url;
-          a.download = `alpaca-${Date.now()}.png`;
+          a.download = `alpaca-ultra-hd-${size}x${size}-${Date.now()}.png`;
           document.body.appendChild(a);
           a.click();
           document.body.removeChild(a);
           URL.revokeObjectURL(url);
         }
-      }, 'image/png');
+      }, 'image/png', 1.0);
       
     } catch (error) {
       console.error('Error creating alpaca image:', error);
